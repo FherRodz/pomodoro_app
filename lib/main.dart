@@ -23,8 +23,8 @@ class _MyAppState extends State<MyApp>{
     setState(() {
       _floatText = "STOP TASK!";
       if(_time == 0)
-        _time = 1;
-      else if(_time == 1){
+        _time = 25;
+      else if(_time == 25){
         _totalTaskTime += 25;
         _time = 5;
       }
