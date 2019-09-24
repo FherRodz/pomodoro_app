@@ -2,6 +2,8 @@
 
 A new Flutter project.
 
+![](images/1stSample.jpg)
+
 ## my first flutter app
 
 This is the first app i decided to make using flutter. 
