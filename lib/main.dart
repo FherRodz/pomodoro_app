@@ -54,16 +54,19 @@ class _MyAppState extends State<MyApp>{
   Widget build(BuildContext context) {
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.red,
+        primarySwatch: Colors.amber,
       ),
       home: Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
           title: Text('The Pomodoro Helper'),
         ),
         body: Container(
+          margin: EdgeInsets.all(10),
           child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             Text(
               'Current timer going for:  ' + (_time).toString() + ' minutes', 
@@ -78,6 +81,25 @@ class _MyAppState extends State<MyApp>{
               height: 1.2
             ),
           ),
+            Container(
+              height: 100,
+              width: 100,
+              child: 
+              RawMaterialButton(
+                child: Text(_floatText, textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold),),
+                fillColor: Colors.amber,
+                shape: CircleBorder(),
+                onPressed: () => {
+                  _isInTask = !_isInTask,
+                  if(_isInTask){
+                    _startTimer()
+                  }
+                  else{
+                    _stopTimer()
+                  }
+                },
+              )
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
@@ -87,19 +109,7 @@ class _MyAppState extends State<MyApp>{
                   onPressed: () => print('pressed contact'),
                   child: Text('Contact Us'),
                 ),
-                FloatingActionButton(
-                  child: Text(_floatText, textAlign: TextAlign.center,),
-                  backgroundColor: Colors.red,
-                  onPressed: () => {
-                    _isInTask = !_isInTask,
-                    if(_isInTask){
-                      _startTimer()
-                    }
-                    else{
-                      _stopTimer()
-                    }
-                  },
-                ),
+
                 RaisedButton(
                   color: Colors.blueGrey,
                   textColor: Colors.white,
